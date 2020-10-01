@@ -11,19 +11,19 @@ class Item {
 
 class Armour extends Item { //affects armour
   constructor(itemName, itemEffect, itemValue) {
-    super(itemName, itemEffect);
+    super(itemName, itemEffect, itemValue);
   }
 }
 
 class Weapon extends Item { //affects damage
   constructor(itemName, itemEffect, itemValue) {
-    super(itemName, itemEffect);
+    super(itemName, itemEffect, itemValue);
   }
 }
 
 class Consumable extends Item { //affects any stat ie health potion poison etc
   constructor(itemName, itemEffect, effectStatTarget, itemValue) {
-    super(itemName, itemEffect);
+    super(itemName, itemEffect, itemValue);
     this.effectStatTarget = effectStatTarget;
   }
 }

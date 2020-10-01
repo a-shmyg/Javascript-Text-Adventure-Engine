@@ -15,4 +15,14 @@ testRoom.addItemToLocation(sword);
 testRoom.addItemToLocation(shield);
 testRoom.addCharacterToLocation(dragon);
 
-testRoom.listEntities();
+//testRoom.listEntities();
+                          //left branch        //right branches
+let dragonDialogue = ["hi", ["yes", ["possibly", "maybe"]], ["no", ["probs not", "lets not"]]];
+let dragonEvent = new Branch("dragon", dragonDialogue);
+dragonEvent.initialiseDialogueTree();
+
+/*
+          hi
+        yes     no       DESCENDANTS OF ROOT
+  maybe possibly   probs not
+*/
