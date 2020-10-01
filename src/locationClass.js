@@ -6,9 +6,21 @@ class Location {
   constructor(locationName, locationNarration, characterList, itemList, furnitureList) {
     this.locationName = locationName;
     this.locationNarration = locationNarration;
-    this.characterList = characterList[];
-    this.itemList = itemList[];
-    this.furnitureList = furnitureList[];
+    this.characterList = characterList;
+    this.itemList = itemList;
+    this.furnitureList = furnitureList;
+  }
+
+  addCharacterToLocation(newCharacter) {
+    this.characterList.push(newCharacter);
+  }
+
+  addItemToLocation(newItem) {
+    this.itemList.push(newItem);
+  }
+
+  addFurnitureToLocation(newFurniture) {
+    this.furnitureList.push(newFurniture);
   }
 
   initLocation() {
@@ -16,11 +28,8 @@ class Location {
   }
 
   listEntities() { //list all entities present in location
-
-  }
-
-  interactWithEntity(entityName) {
-    //check entity exists
-    //check events correspond with actions
+    console.log(this.characterList);
+    console.log(this.itemList);
+    console.log(this.furnitureList);
   }
 }

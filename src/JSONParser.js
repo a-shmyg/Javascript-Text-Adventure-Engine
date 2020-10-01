@@ -16,7 +16,7 @@ Locations:
 
     NPC
       Stats
-      Items
+      Inventory - private and can't be acessed from location unless dropped
       Events
 
     Paths

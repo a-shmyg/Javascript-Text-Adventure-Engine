@@ -3,3 +3,4 @@
 
 //init player
 //get locations from JSON json parser
+locationsList = [];
