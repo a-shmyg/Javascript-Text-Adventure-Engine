@@ -1,7 +1,7 @@
 //events can be assigned to locations, characters, items
 "use strict";
 
-class Branch() {
+class Branch() { //holds dialogie branches etc
 
 }
 
