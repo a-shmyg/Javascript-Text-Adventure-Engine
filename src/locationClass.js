@@ -23,10 +23,6 @@ class Location {
     this.furnitureList.push(newFurniture);
   }
 
-  initLocation() {
-
-  }
-
   listEntities() { //list all entities present in location
     console.log(this.characterList);
     console.log(this.itemList);

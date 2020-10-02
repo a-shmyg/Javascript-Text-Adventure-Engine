@@ -32,4 +32,9 @@ class Combat {
   constructor() {
 
   }
+
+  //need to define what outcomes i want from events, dialogue is only one possibility
+  //for example - touch trapped door, a boulder falls on player and they take damage
+  //talk to dragon, say wrong thing and it becomes hostile, - go into combat state
+  //encounter a book and have to decipher what it says, no branch just type
 }
