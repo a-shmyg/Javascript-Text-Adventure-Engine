@@ -3,7 +3,9 @@
 
 class Event {
   constructor(eventId, eventTrigger, eventOutcome) {
-
+    this.eventId = eventId;
+    this.eventTrigger = eventTrigger;
+    this.eventOutcome = eventOutcome;
   }
 }
 
