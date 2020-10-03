@@ -33,14 +33,14 @@ gameFile = {
       characterStats: {health:50, armour:25, damage:12},
       characterInv: ["gold", "scales"],
       hostile: false,
-      characterEvents: null
+      characterEvents: []
     }],
     items: [{
       itemType: "weapon",
       itemName: "stake",
       itemEffect: 5,
       itemValue: 2,
-      itemEvents: null
+      itemEvents: []
     }],
     furniture: [{
       furnitureName: "chest",

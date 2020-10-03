@@ -2,14 +2,14 @@
 "use strict";
 
 class Event {
-  constructor(eventOwner, eventOutcome) {
+  constructor(eventId, eventTrigger, eventOutcome) {
 
   }
 }
 
-class Branch extends Event { //holds dialogie branches using tree structure
-  constructor(branchOwner, branchDialogue) {
-    this.branchOwner = branchOwner;
+class BranchEvent extends Event { //holds dialogie branches using tree structure
+  constructor(eventId, eventTrigger, eventOutcome, branchDialogue) {
+    super(eventId, eventTrigger, eventOutcome);
     this.branchDialogue = branchDialogue;
   }
 
@@ -26,21 +26,24 @@ class Branch extends Event { //holds dialogie branches using tree structure
   }
 }
 
+class DynamicEvent extends Event {
+  constructor(eventId, eventOutcome, ) {
+    super(eventId, eventOutcome, effect);
+
+  }
+}
+
+class CombatEvent extends Event {
+  constructor(playerObject, enemyObject, eventId, eventTrigger, eventOutcome) {
+    super(eventId, eventTrigger, eventOutcome);
+    this.playerObject = playerObject;
+    this.enemyObject = enemyObject;
+  }
+}
 
 class TreeNode {
   constructor(value) {
     this.value = value;
     this.childNodes = [];
   }
-}
-
-class Combat {
-  constructor(playerObject, enemyObject) {
-
-  }
-
-  //need to define what outcomes i want from events, dialogue is only one possibility
-  //for example - touch trapped door, a boulder falls on player and they take damage
-  //talk to dragon, say wrong thing and it becomes hostile, - go into combat state
-  //encounter a book and have to decipher what it says, no branch just type
 }
