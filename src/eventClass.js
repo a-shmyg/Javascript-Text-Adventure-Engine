@@ -1,7 +1,13 @@
 //events can be assigned to locations, characters, items
 "use strict";
 
-class Branch { //holds dialogie branches using tree structure
+class Event {
+  constructor(eventOwner, eventOutcome) {
+
+  }
+}
+
+class Branch extends Event { //holds dialogie branches using tree structure
   constructor(branchOwner, branchDialogue) {
     this.branchOwner = branchOwner;
     this.branchDialogue = branchDialogue;
@@ -29,7 +35,7 @@ class TreeNode {
 }
 
 class Combat {
-  constructor() {
+  constructor(playerObject, enemyObject) {
 
   }
 

@@ -4,10 +4,11 @@
 class FormatOutput { //handles user input, outputs response
   constructor() {}
 
+  processInputToFrame() {
+
+  }
 
   outputResponseToFrame() { //allow option for newline
 
   }
-
-
 }
