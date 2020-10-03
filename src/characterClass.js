@@ -13,6 +13,10 @@ class Character { //name, inv, stats
     console.log(this.characterStats);
     console.log(this.characterInv);
   }
+
+  addToInventory(item) {
+    this.characterInv.push(item);
+  }
 }
 
 class NPC extends Character { //extra option if hostile or not
