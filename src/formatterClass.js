@@ -4,8 +4,9 @@
 class FormatOutput { //handles user input, outputs response
   constructor() {
     this.userInput = document.getElementById("user-input");
+    this.displayText = document.getElementById("display-text");
     this.initialiseFrameInput = this.initialiseFrameInput.bind(this);
-    //this.displayText = document.getElementById("display-text");
+    this.outputResponseToFrame = this.outputResponseToFrame.bind(this);
     //this.childTextNodes;
     this.inputHandler = this.inputHandler.bind(this); // i hate javascript
   }
@@ -13,7 +14,6 @@ class FormatOutput { //handles user input, outputs response
   initialiseFrameInput() {
     document.addEventListener("keypress", this.inputHandler, false);
     console.log("initialised frame formatter");
-    console.log(this.userInput);
   }
 
   inputHandler(keyInput) {
@@ -36,8 +36,20 @@ class FormatOutput { //handles user input, outputs response
         game.gameCommands(userInput.value);
         userInput.value = ""; //clear the value after each input so user doesn't accidently submit same thing again
         */
+        this.outputResponseToFrame(this.userInput.value);
         this.userInput.value="";
       }
+    }
+
+    outputResponseToFrame(output) { //allow option for newline
+      console.log(output);
+      var newOutputText = document.createElement('p'); //new p node
+      newOutputText.classList.add("welcome-text"); //styling
+      newOutputText.classList.add("console");
+
+      var textnode = document.createTextNode(output);
+      newOutputText.appendChild(textnode);
+      this.displayText.appendChild(newOutputText);
     }
 
   /*fadeText(element) { //animation to fade text slowly in main title
@@ -65,19 +77,5 @@ class FormatOutput { //handles user input, outputs response
       element.removeChild(child);
       child = element.lastElementChild;
     }
-  }*/
-
-  processInputToFrame(input) {
-
-  }
-
-  /*outputResponseToFrame(output) { //allow option for newline
-    var newOutputText = document.createElement('p'); //new p node
-    newOutputText.classList.add("welcome-text"); //styling
-    newOutputText.classList.add("console");
-
-    var textnode = document.createTextNode(text);
-    newOutputText.appendChild(textnode);
-    parent.appendChild(newOutputText);
   }*/
 }
