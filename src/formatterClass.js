@@ -5,9 +5,10 @@ class FormatOutput { //handles user input, outputs response
   constructor() {
     this.userInput = document.getElementById("user-input");
     this.displayText = document.getElementById("display-text");
+
     this.initialiseFrameInput = this.initialiseFrameInput.bind(this);
     this.outputResponseToFrame = this.outputResponseToFrame.bind(this);
-    //this.childTextNodes;
+    this.clearChildNodes = this.clearChildNodes.bind(this);
     this.inputHandler = this.inputHandler.bind(this); // i hate javascript
   }
 
@@ -20,24 +21,14 @@ class FormatOutput { //handles user input, outputs response
     if (keyInput.key == 'Enter') { //bounce to initialise
       console.log("input done");
       console.log(this.userInput.value);
-        //childTextNodes = displayText.childNodes;
-        /*fadeText(document.getElementById('demo-title'));
-        clearChildNodes(displayText);*/
 
+      if(this.displayText.childNodes.length > 13) {
+          console.log("clearing");
+          this.clearChildNodes(this.displayText);
+      }
 
-        //userInput.value = "";
-        /*childTextNodes = displayText.childNodes;
-        var childNodesNum = childTextNodes.length;
-
-        if(childNodesNum > 13) {
-          clearChildNodes(displayText);
-        }
-
-        game.gameCommands(userInput.value);
-        userInput.value = ""; //clear the value after each input so user doesn't accidently submit same thing again
-        */
-        this.outputResponseToFrame(this.userInput.value);
-        this.userInput.value="";
+      this.outputResponseToFrame(this.userInput.value);
+      this.userInput.value="";
       }
     }
 
@@ -52,30 +43,13 @@ class FormatOutput { //handles user input, outputs response
       this.displayText.appendChild(newOutputText);
     }
 
-  /*fadeText(element) { //animation to fade text slowly in main title
-    var element;
-    var transparency = 1;
-    var id = setInterval(frame, 100);
-
-    console.log(element);
-
-    function frame() {
-      if (transparency == 0) {
-        clearInterval(id);
-      } else {
-        transparency -= 0.1;
-        element.style.opacity = transparency;
-      }
-    }
-  }
-
-  function clearChildNodes(element) {
+  clearChildNodes(element) {
+    console.log("clearing nodes");
     var child = element.lastElementChild;
 
     while (child) {
-
       element.removeChild(child);
       child = element.lastElementChild;
     }
-  }*/
+  }
 }

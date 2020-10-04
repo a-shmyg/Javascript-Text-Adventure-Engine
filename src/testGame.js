@@ -27,6 +27,7 @@ function main() {
 
   let formatOutput = new FormatOutput();
   formatOutput.initialiseFrameInput();
+  //formatOutput.clearChildNodes(document.getElementById("display-text"));
 }
 /*
           hi
