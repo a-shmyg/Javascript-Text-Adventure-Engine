@@ -17,9 +17,6 @@ class BranchEvent extends Event { //holds dialogie branches using tree structure
 
   initialiseDialogueTree() { //go thru branch array and build tree, left to right
     console.log(this.branchDialogue);
-    let rootNode = new TreeNode(this.branchDialogue[0]);
-    let currentLevel = 0;
-
 
   }
 
