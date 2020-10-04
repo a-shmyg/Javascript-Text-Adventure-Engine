@@ -4,23 +4,25 @@
 class FormatOutput { //handles user input, outputs response
   constructor() {
     this.userInput = document.getElementById("user-input");
-    this.displayText = document.getElementById("display-text");
-    this.childTextNodes;
+    this.initialiseFrameInput = this.initialiseFrameInput.bind(this);
+    //this.displayText = document.getElementById("display-text");
+    //this.childTextNodes;
+    this.inputHandler = this.inputHandler.bind(this); // i hate javascript
   }
 
   initialiseFrameInput() {
     document.addEventListener("keypress", this.inputHandler, false);
     console.log("initialised frame formatter");
+    console.log(this.userInput);
   }
 
   inputHandler(keyInput) {
     console.log("handling input keypress");
 
-    if (keyInput.key == 'Enter') { //bounce to initialise
-      var userInput = document.getElementById("user-input");
-      console.log("input done");
-      console.log(userInput);
+    console.log(this.userInput);
 
+    if (keyInput.key == 'Enter') { //bounce to initialise
+      console.log("input done");
         //childTextNodes = displayText.childNodes;
         /*fadeText(document.getElementById('demo-title'));
         clearChildNodes(displayText);*/

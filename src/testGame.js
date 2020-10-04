@@ -1,8 +1,11 @@
 "use strict";
 
 console.log("hello world");
+document.addEventListener("DOMContentLoaded", main);
 
 
+function main() {
+console.log(document.getElementById("user-input"));
 
 let actionsParser = new ActionParser();
 let playerOne = new Player("ana", {health:10, armour:0, damage:1}, [], "testRoom");
@@ -25,7 +28,7 @@ dragonEvent.initialiseDialogueTree();
 
 let formatOutput = new FormatOutput();
 formatOutput.initialiseFrameInput();
-
+}
 /*
           hi
         yes     no       DESCENDANTS OF ROOT
