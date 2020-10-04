@@ -5,7 +5,11 @@ class FormatOutput { //handles user input, outputs response
   constructor() {
     this.userInput = document.getElementById("user-input");
     this.displayText = document.getElementById("display-text");
-    this.childTextNodes;
+
+    this.initialiseFrameInput = this.initialiseFrameInput.bind(this);
+    this.outputResponseToFrame = this.outputResponseToFrame.bind(this);
+    this.clearChildNodes = this.clearChildNodes.bind(this);
+    this.inputHandler = this.inputHandler.bind(this); // i hate javascript
   }
 
   initialiseFrameInput() {
@@ -14,70 +18,39 @@ class FormatOutput { //handles user input, outputs response
   }
 
   inputHandler(keyInput) {
-    console.log("handling input keypress");
-
     if (keyInput.key == 'Enter') { //bounce to initialise
-      var userInput = document.getElementById("user-input");
       console.log("input done");
-      console.log(userInput);
+      console.log(this.userInput.value);
 
-        //childTextNodes = displayText.childNodes;
-        /*fadeText(document.getElementById('demo-title'));
-        clearChildNodes(displayText);*/
+      if(this.displayText.childNodes.length > 13) {
+          console.log("clearing");
+          this.clearChildNodes(this.displayText);
+      }
 
-
-        //userInput.value = "";
-        /*childTextNodes = displayText.childNodes;
-        var childNodesNum = childTextNodes.length;
-
-        if(childNodesNum > 13) {
-          clearChildNodes(displayText);
-        }
-
-        game.gameCommands(userInput.value);
-        userInput.value = ""; //clear the value after each input so user doesn't accidently submit same thing again
-        */
+      //temporary until actions finished
+      this.outputResponseToFrame(this.userInput.value);
+      this.userInput.value="";
       }
     }
 
-  /*fadeText(element) { //animation to fade text slowly in main title
-    var element;
-    var transparency = 1;
-    var id = setInterval(frame, 100);
+    outputResponseToFrame(output) { //allow option for newline
+      console.log(output);
+      var newOutputText = document.createElement('p'); //new p node
+      newOutputText.classList.add("welcome-text"); //styling
+      newOutputText.classList.add("console");
 
-    console.log(element);
-
-    function frame() {
-      if (transparency == 0) {
-        clearInterval(id);
-      } else {
-        transparency -= 0.1;
-        element.style.opacity = transparency;
-      }
+      var textnode = document.createTextNode(output);
+      newOutputText.appendChild(textnode);
+      this.displayText.appendChild(newOutputText);
     }
-  }
 
-  function clearChildNodes(element) {
+  clearChildNodes(element) {
+    console.log("clearing nodes");
     var child = element.lastElementChild;
 
     while (child) {
-
       element.removeChild(child);
       child = element.lastElementChild;
     }
-  }*/
-
-  processInputToFrame(input) {
-
   }
-
-  /*outputResponseToFrame(output) { //allow option for newline
-    var newOutputText = document.createElement('p'); //new p node
-    newOutputText.classList.add("welcome-text"); //styling
-    newOutputText.classList.add("console");
-
-    var textnode = document.createTextNode(text);
-    newOutputText.appendChild(textnode);
-    parent.appendChild(newOutputText);
-  }*/
 }
