@@ -17,12 +17,9 @@ class FormatOutput { //handles user input, outputs response
   }
 
   inputHandler(keyInput) {
-    console.log("handling input keypress");
-
-    console.log(this.userInput);
-
     if (keyInput.key == 'Enter') { //bounce to initialise
       console.log("input done");
+      console.log(this.userInput.value);
         //childTextNodes = displayText.childNodes;
         /*fadeText(document.getElementById('demo-title'));
         clearChildNodes(displayText);*/
@@ -39,6 +36,7 @@ class FormatOutput { //handles user input, outputs response
         game.gameCommands(userInput.value);
         userInput.value = ""; //clear the value after each input so user doesn't accidently submit same thing again
         */
+        this.userInput.value="";
       }
     }
 
