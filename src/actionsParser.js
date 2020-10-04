@@ -16,7 +16,11 @@ class ActionParser {
         break;
       case "where":
         break;
+      case "get":
+        break;
+      case ""
       default:
+        console.log("invalid action");
         break;
     }
   }
