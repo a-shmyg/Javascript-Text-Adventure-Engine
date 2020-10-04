@@ -27,6 +27,7 @@ class FormatOutput { //handles user input, outputs response
           this.clearChildNodes(this.displayText);
       }
 
+      //temporary until actions finished
       this.outputResponseToFrame(this.userInput.value);
       this.userInput.value="";
       }
