@@ -24,12 +24,25 @@ class Location {
     this.furnitureMap[newFurniture.furnitureName] = newFurniture;
   }
 
-  getFurnitureByName(furnitureName) { 
-    for (var i=0; i < this.furnitureList.length; i++) {
-      if (this.furnitureList[i].furnitureName === furnitureName) {
-        return
-      }
+  getItemByName(itemName) {
+    if (itemName in this.itemMap) {
+      return this.itemMap[itemName];
     }
+    return false;
+  }
+
+  getCharacterByName(characterName) {
+    if (characterName in this.characterMap) {
+      return this.characterMap[characterName];
+    }
+    return false;
+  }
+
+  getFurnitureByName(furnitureName) {
+    if (furnitureName in this.furnitureMap) {
+      return this.furnitureMap[furnitureName];
+    }
+    return false;
   }
 
   listEntities() { //list all entities present in location
