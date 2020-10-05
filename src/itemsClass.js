@@ -32,4 +32,8 @@ class Furniture { //interactable with, cant be picked up
   constuctor(furnitureName) {
     this.furnitureName = furnitureName;
   }
+
+  getFurnitureName() {
+    return this.furnitureName;
+  }
 }

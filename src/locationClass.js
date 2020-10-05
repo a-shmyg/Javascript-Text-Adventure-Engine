@@ -3,29 +3,38 @@
 "use strict";
 
 class Location {
-  constructor(locationName, locationNarration, characterList, itemList, furnitureList) {
+  constructor(locationName, locationNarration) {
     this.locationName = locationName;
     this.locationNarration = locationNarration;
-    this.characterList = characterList;
-    this.itemList = itemList;
-    this.furnitureList = furnitureList;
+    this.characterMap = {};
+    this.itemMap = {};
+    this.furnitureMap = {};
+
   }
 
   addCharacterToLocation(newCharacter) {
-    this.characterList.push(newCharacter);
+    this.characterMap[newCharacter.characterName] = newCharacter;
   }
 
   addItemToLocation(newItem) {
-    this.itemList.push(newItem);
+    this.itemMap[newItem.itemName] = newItem;
   }
 
   addFurnitureToLocation(newFurniture) {
-    this.furnitureList.push(newFurniture);
+    this.furnitureMap[newFurniture.furnitureName] = newFurniture;
+  }
+
+  getFurnitureByName(furnitureName) { 
+    for (var i=0; i < this.furnitureList.length; i++) {
+      if (this.furnitureList[i].furnitureName === furnitureName) {
+        return
+      }
+    }
   }
 
   listEntities() { //list all entities present in location
-    console.log(this.characterList);
-    console.log(this.itemList);
-    console.log(this.furnitureList);
+    console.log(this.characterMap);
+    console.log(this.itemMap);
+    console.log(this.furnitureMap);
   }
 }

@@ -8,17 +8,27 @@ class ActionParser {
 
   checkValidAction(checkActionString) { //given the valid actions does the string given exist as an action
     switch(checkActionString) {
-      case "look":
+      case "look": //display command
+        console.log("display the area");
         break;
-      case "stats":
+      case "stats": //display command
+        console.log("display stats");
         break;
-      case "inv":
+      case "inv": //display command
+        console.log("display inv");
         break;
-      case "where":
+      case "where": //display command
+        console.log("display paths");
         break;
-      case "get":
+      case "get": //inventory command
+        console.log("get into inv");
         break;
-      case ""
+      case "drop": //inventory command
+        console.log("drop from inv");
+      case "attack": //interaction command
+        console.log("attack entity");
+      case "talk": //interaction command
+        console.log("talk to entity");
       default:
         console.log("invalid action");
         break;
@@ -33,7 +43,7 @@ class ActionParser {
   }
 
   checkFurniture(checkFurnitureExists, locationObject) {
-    //
+    console.log(locationObject.furnitureList);
   }
 
   checkItems(checkItemExists, locationObject) {
