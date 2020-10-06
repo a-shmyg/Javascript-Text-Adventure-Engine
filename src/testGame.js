@@ -27,6 +27,9 @@ function main() {
   dragonEvent.initialiseDialogueTree();*/
 
   let actionsParser = new ActionParser();
+  ActionParser.checkValidAction("look");
+  ActionParser.checkValidAction("stats");
+  ActionParser.checkValidAction("get");
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
 

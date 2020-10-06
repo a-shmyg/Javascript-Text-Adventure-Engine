@@ -9,7 +9,15 @@ class Location {
     this.characterMap = {};
     this.itemMap = {};
     this.furnitureMap = {};
+    this.paths = [];
+  }
 
+  addPathToLocation(pathName) {
+    this.paths.push(pathName);
+  }
+
+  removePathFromLocation(pathName) {
+    this.paths.pop(pathName);
   }
 
   addCharacterToLocation(newCharacter) {
