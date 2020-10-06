@@ -27,9 +27,10 @@ function main() {
   dragonEvent.initialiseDialogueTree();*/
 
   let actionsParser = new ActionParser();
-  ActionParser.checkValidAction("look");
-  ActionParser.checkValidAction("stats");
-  ActionParser.checkValidAction("get");
+  actionsParser.checkValidAction("look");
+  actionsParser.checkValidAction("stats");
+  actionsParser.checkValidAction("get");
+  actionsParser.parseUserInputString("get thing");
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
 

@@ -3,17 +3,24 @@
 
 class ActionParser {
   constructor() {
-    this.validActionList = ["look", "stats", "inv", "where"]; //inv kill fight move walk goto etc etc
     this.locationObject;
     this.checkValidAction = this.checkValidAction.bind(this);
   }
 
   parseUserInputString(userInputString) { //is the string user gave valid ie correct number of words etc
+    if (userInputString.length === 1) {
+      checkDisplayCommand(userInputString);
 
+    } else if (userInputString.length === 2) {
+      checkValidAction(userInputString);
+
+    } else {
+      console.log("invalid string");
+    }
   }
 
-  checkValidAction(actionString) { //given the valid actions does the string given exist as an action
-    switch(actionString) {
+  checkDisplayCommand(displayCommand) {
+    switch(displayCommand) {
       case "look": //display command
         console.log("display the area");
         break;
@@ -26,6 +33,13 @@ class ActionParser {
       case "where": //display command
         console.log("display paths");
         break;
+      default:
+        break;
+    }
+  }
+
+  checkValidAction(actionString) { //given the valid actions does the string given exist as an action
+    switch(actionString) {
       case "get": //inventory command
         console.log("get into inv");
         break;
@@ -48,18 +62,16 @@ class ActionParser {
   }
 
   lookCommand() {
-
+    //list all entities in the room
   }
 
   statsCommand() {
-
+    //player stats
   }
 
   invCommand() {
-
+    //player inv
   }
-
-
 
   checkValidObject(checkObjectExists, locationObject) { //given a room entity and list of objects does it exist
     if (checkFurniture() && checkItems() && checkCharacters()) {
