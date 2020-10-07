@@ -61,7 +61,6 @@ function main() {
   actionsParser.parseUserInputString(dragon, "inv");
   actionsParser.parseUserInputString(playerOne, "look");
 
-
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
 

@@ -96,12 +96,23 @@ class ActionParser {
 
   lookCommand(commandOwner) {
     //list all entities in the room
-    //need a way to get the current location object
     console.log("display entities in room");
     var currentLocation = commandOwner.getCurrentLocation();
     var locationFurniture = currentLocation.getLocationFurniture();
     var locationItems = currentLocation.getLocationItems();
     var locationCharacters = currentLocation.getLocationCharacters();
+
+    for (const [key, value] of Object.entries(locationFurniture)) {
+      console.log(key);
+    }
+
+    for (const [key, value] of Object.entries(locationItems)) {
+      console.log(key);
+    }
+
+    for (const [key, value] of Object.entries(locationCharacters)) {
+      console.log(key);
+    }
 
   }
 
