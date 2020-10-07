@@ -27,14 +27,14 @@ function main() {
 
   let actionsParser = new ActionParser();
   //checking the parsing of command
-  actionsParser.checkDisplayCommand("look");
-  actionsParser.checkDisplayCommand("stats");
-  actionsParser.checkValidAction("get", "something");
+  actionsParser.checkDisplayCommand(playerOne, "look");
+  actionsParser.checkDisplayCommand(playerOne,"stats");
+  actionsParser.checkValidAction(playerOne,"get", "something");
 
-  actionsParser.parseUserInputString("get thing");
-  actionsParser.parseUserInputString("drop thing");
-  actionsParser.parseUserInputString("invalid action 1");
-  actionsParser.parseUserInputString("invalid action2");
+  actionsParser.parseUserInputString(playerOne,"get thing");
+  actionsParser.parseUserInputString(playerOne,"drop thing");
+  actionsParser.parseUserInputString(playerOne,"invalid action 1");
+  actionsParser.parseUserInputString(playerOne,"invalid action2");
 
   //checking the object checks
   actionsParser.checkItems("sword", testRoom);
@@ -44,7 +44,6 @@ function main() {
   actionsParser.checkValidObject("dragon", testRoom);
   actionsParser.checkValidObject("sword", testRoom);
   actionsParser.checkValidObject("nothing", testRoom);
-
 
   /*actionsParser.checkValidObject("sword", testRoom);
   actionsParser.checkValidObject("dragon", testRoom);

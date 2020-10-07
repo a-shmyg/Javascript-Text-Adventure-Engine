@@ -6,21 +6,22 @@ class ActionParser {
     this.checkValidAction = this.checkValidAction.bind(this);
   }
 
-  parseUserInputString(userInputString) { //is the string user gave valid ie correct number of words etc
+  parseUserInputString(commandOwner, userInputString) { //is the string user gave valid ie correct number of words etc
     var userStringArray = userInputString.split(" ");
+    console.log(commandOwner.characterName+" is doing a command");
 
     if (userStringArray.length === 1) { //typically just to diplay info for player
-      this.checkDisplayCommand(userStringArray);
+      this.checkDisplayCommand(commandOwner, userStringArray);
 
     } else if (userStringArray.length === 2) { //this is for interaction type commands
-      this.checkValidAction(userStringArray[0], userStringArray[1]);
+      this.checkValidAction(commandOwner, userStringArray[0], userStringArray[1]);
 
     } else {
       console.log("invalid string");
     }
   }
 
-  checkDisplayCommand(displayCommand) {
+  checkDisplayCommand(commandOwner, displayCommand) {
     switch(displayCommand) {
       case "look": //display command
         console.log("display the area");
@@ -39,7 +40,7 @@ class ActionParser {
     }
   }
 
-  checkValidAction(actionString, objectString) { //given the valid actions does the string given exist as an action
+  checkValidAction(commandOwner, actionString, objectString) { //given the valid actions does the string given exist as an action
     switch(actionString) {
       case "get": //inventory command
         console.log("get into inv");
