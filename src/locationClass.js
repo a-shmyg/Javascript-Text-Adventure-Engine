@@ -32,6 +32,8 @@ class Location {
     this.furnitureMap[newFurniture.furnitureName] = newFurniture;
   }
 
+  //ADD REMOVING METHODS!
+
   getItemByName(itemName) {
     if (itemName in this.itemMap) {
       return this.itemMap[itemName];
