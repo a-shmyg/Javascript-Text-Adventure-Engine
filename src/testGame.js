@@ -29,8 +29,11 @@ function main() {
   let actionsParser = new ActionParser();
   actionsParser.checkValidAction("look");
   actionsParser.checkValidAction("stats");
-  actionsParser.checkValidAction("get");
+  actionsParser.checkValidAction("get something");
   actionsParser.parseUserInputString("get thing");
+  actionsParser.parseUserInputString("drop thing");
+  actionsParser.parseUserInputString("invalid action 1");
+  actionsParser.parseUserInputString("invalid action2");
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
 
