@@ -9,12 +9,12 @@ class Location {
     this.characterMap = {};
     this.itemMap = {};
     this.furnitureMap = {};
-    this.paths = [];
+    this.paths = {}; //make this references to location objects?
   }
 
   //ADDING METHODS
-  addPathToLocation(pathName) {
-    this.paths.push(pathName);
+  addPathToLocation(locationObject) {
+    this.paths[locationObject.locationName] = locationObject;
   }
 
   addCharacterToLocation(newCharacter) {
@@ -31,7 +31,7 @@ class Location {
 
   //REMOVING METHODS
   removePathFromLocation(pathName) {
-    this.paths.pop(pathName);
+    delete this.paths[pathName];
   }
 
   removeFurnitureFromLocation(furnitureName) {
@@ -55,10 +55,10 @@ class Location {
     return this.paths;
   }
 
-  pathExists(pathName) {
-    if (this.paths.includes(pathName)) {
-      return true;
-    }
+  getPathByName(pathName) {
+    if (pathName in this.paths) {
+      return this.paths[pathName];
+      }
     return false;
   }
 

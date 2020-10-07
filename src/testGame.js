@@ -21,9 +21,7 @@ function main() {
   testRoom.addItemToLocation(shield);
   testRoom.addCharacterToLocation(dragon);
   testRoom.addFurnitureToLocation(stoneTablet);
-  testRoom.addPathToLocation("testGoto");
-  console.log(testRoom.pathExists("testGoto"));
-  console.log(testRoom.paths);
+  testRoom.addPathToLocation(testGoto);
 
   //testRoom.listEntities();
 

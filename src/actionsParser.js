@@ -154,10 +154,11 @@ class ActionParser {
   gotoCommand(commandOwner, path) {
     var currentLocation = commandOwner.getCurrentLocation();
 
-    if (currentLocation.pathExists(path)) {
+    if (currentLocation.getPathByName(path)) {
       console.log("change locations thru path");
       //how do i change current location reference!!!
-      
+      commandOwner.setCurrentLocation(currentLocation.getPathByName(path));
+      console.log(commandOwner.getCurrentLocation());
 
     } else {
       console.log("you can't go that way");
