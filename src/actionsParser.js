@@ -28,7 +28,7 @@ class ActionParser {
         this.lookCommand(commandOwner);
         break;
       case "stats":
-        console.log("display stats");
+        this.statsCommand(commandOwner);
         break;
       case "inv":
         this.invCommand(commandOwner);
@@ -116,8 +116,11 @@ class ActionParser {
 
   }
 
-  statsCommand() {
-    //player stats
+  statsCommand(commandOwner) {
+    console.log("displaying stats");
+    console.log("armour "+commandOwner.characterStats["armour"]);
+    console.log("health "+commandOwner.characterStats["health"]);
+    console.log("damage "+commandOwner.characterStats["damage"]);
   }
 
   invCommand(commandOwner) {
