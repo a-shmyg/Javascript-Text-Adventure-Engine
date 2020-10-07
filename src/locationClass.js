@@ -34,6 +34,18 @@ class Location {
 
   //ADD REMOVING METHODS!
 
+  getLocationFurniture() {
+    return this.furnitureMap;
+  }
+
+  getLocationItems() {
+    return this.itemMap;
+  }
+
+  getLocationCharacters() {
+    return this.characterMap;
+  }
+
   getItemByName(itemName) {
     if (itemName in this.itemMap) {
       return this.itemMap[itemName];

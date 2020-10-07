@@ -24,16 +24,16 @@ class ActionParser {
   checkDisplayCommand(commandOwner, displayCommand) {
     console.log("display command");
     switch(displayCommand) {
-      case "look": //display command
-        this.lookCommand();
+      case "look":
+        this.lookCommand(commandOwner);
         break;
-      case "stats": //display command
+      case "stats":
         console.log("display stats");
         break;
-      case "inv": //display command
+      case "inv":
         this.invCommand(commandOwner);
         break;
-      case "where": //display command
+      case "where":
         console.log("display paths");
         break;
       default:
@@ -94,10 +94,14 @@ class ActionParser {
     return false;
   }
 
-  lookCommand() {
+  lookCommand(commandOwner) {
     //list all entities in the room
     //need a way to get the current location object
     console.log("display entities in room");
+    var currentLocation = commandOwner.getCurrentLocation();
+    var locationFurniture = currentLocation.getLocationFurniture();
+    var locationItems = currentLocation.getLocationItems();
+    var locationCharacters = currentLocation.getLocationCharacters();
 
   }
 
@@ -107,11 +111,11 @@ class ActionParser {
 
   invCommand(commandOwner) {
     console.log("displaying inventory");
-    var characterInv = Object.entries(commandOwner.getCharacterInventory());
+    var characterInv = commandOwner.getCharacterInventory();
     //check it doesnt make the item object into array as well
 
-    for (var i = 0; i < characterInv.length; i++) {
-      console.log(characterInv[i][0]);
+    for (const [key, value] of Object.entries(characterInv)) {
+      console.log(key);
     }
 
   }

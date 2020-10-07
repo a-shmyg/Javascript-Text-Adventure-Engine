@@ -5,19 +5,22 @@ document.addEventListener("DOMContentLoaded", main);
 
 
 function main() {
-  let playerOne = new Player("ana", {health:10, armour:0, damage:1}, "testRoom");
   let testRoom = new Location("testRoom", "welcome to the jungle");
+  let playerOne = new Player("ana", {health:10, armour:0, damage:1});
   let dragon = new NPC("dragon", {health:50, armour:25, damage:12}, true);
   let sword = new Weapon("sword", 5, 100);
   let shield = new Armour("shield", 10, 50);
   let stoneTablet = new Furniture("stone_tablet");
 
   playerOne.outputCharInfo();
+  playerOne.setCurrentLocation(testRoom);
+  dragon.setCurrentLocation(testRoom);
 
   testRoom.addItemToLocation(sword);
   testRoom.addItemToLocation(shield);
   testRoom.addCharacterToLocation(dragon);
   testRoom.addFurnitureToLocation(stoneTablet);
+
 
   //testRoom.listEntities();
 

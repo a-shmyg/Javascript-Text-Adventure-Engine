@@ -2,11 +2,14 @@
 "use strict";
 
 class Character { //name, inv, stats
-  constructor(characterName, characterStats, currentLocation) {
+  constructor(characterName, characterStats) {
     this.characterName = characterName;
     this.characterStats = characterStats;
-    this.currentLocation = currentLocation;
+    this.currentLocation;
     this.characterInv = {};
+
+    this.setCurrentLocation = this.setCurrentLocation.bind(this);
+    this.getCurrentLocation = this.getCurrentLocation.bind(this);
   }
 
   outputCharInfo() { //to test it works correctly
@@ -30,11 +33,19 @@ class Character { //name, inv, stats
   getCharacterInventory() {
     return this.characterInv;
   }
+
+  setCurrentLocation(currentLocation) {
+    this.currentLocation = currentLocation;
+  }
+
+  getCurrentLocation() {
+    return this.currentLocation;
+  }
 }
 
 class NPC extends Character { //extra option if hostile or not
-  constructor(characterName, characterStats, characterInv, currentLocation, isHostile) {
-    super(characterName, characterStats, characterInv, currentLocation);
+  constructor(characterName, characterStats, characterInv, isHostile) {
+    super(characterName, characterStats, characterInv);
     this.isHostile = isHostile;
   }
 
@@ -46,9 +57,8 @@ class NPC extends Character { //extra option if hostile or not
 }
 
 class Player extends Character { //extra option for current location
-  constructor(characterName, characterStats, characterInv, currentLocation) {
-    super(characterName, characterStats, characterInv, currentLocation);
-    this.currentLocation = currentLocation;
+  constructor(characterName, characterStats, characterInv) {
+    super(characterName, characterStats, characterInv);
   }
 
   outputCharInfo() { //to test it works correctly
