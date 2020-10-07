@@ -71,6 +71,7 @@ function main() {
   actionsParser.parseUserInputString(playerOne, "drop sword");
   testRoom.listEntities();
   actionsParser.parseUserInputString(playerOne, "inv");
+  actionsParser.parseUserInputString(playerOne, "attack dragon");
   //testRoom.listEntities();
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();

@@ -127,6 +127,18 @@ class ActionParser {
     }
   }
 
+  attackCommand(commandOwner, entityName) {
+    var currentLocation = commandOwner.getCurrentLocation();
+
+    if (currentLocation.getCharacterByName(entityName)) {
+      console.log("attacking entity");
+      //transition into combat event
+
+    } else {
+      console.log("you cant attack that");
+    }
+  }
+
   lookCommand(commandOwner) {
     //list all entities in the room
     console.log("display entities in room");
@@ -159,7 +171,6 @@ class ActionParser {
   invCommand(commandOwner) {
     console.log("displaying inventory");
     var characterInv = commandOwner.getCharacterInventory();
-    //check it doesnt make the item object into array as well
 
     for (const [key, value] of Object.entries(characterInv)) {
       console.log(key);
