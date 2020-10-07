@@ -156,7 +156,6 @@ class ActionParser {
 
     if (currentLocation.getPathByName(path)) {
       console.log("change locations thru path");
-      //how do i change current location reference!!!
       commandOwner.setCurrentLocation(currentLocation.getPathByName(path));
       console.log(commandOwner.getCurrentLocation());
 
