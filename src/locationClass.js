@@ -9,15 +9,12 @@ class Location {
     this.characterMap = {};
     this.itemMap = {};
     this.furnitureMap = {};
-    this.paths = [];
+    this.paths = {}; //make this references to location objects?
   }
 
-  addPathToLocation(pathName) {
-    this.paths.push(pathName);
-  }
-
-  removePathFromLocation(pathName) {
-    this.paths.pop(pathName);
+  //ADDING METHODS
+  addPathToLocation(locationObject) {
+    this.paths[locationObject.locationName] = locationObject;
   }
 
   addCharacterToLocation(newCharacter) {
@@ -32,7 +29,46 @@ class Location {
     this.furnitureMap[newFurniture.furnitureName] = newFurniture;
   }
 
-  //ADD REMOVING METHODS!
+  //REMOVING METHODS
+  removePathFromLocation(pathName) {
+    delete this.paths[pathName];
+  }
+
+  removeFurnitureFromLocation(furnitureName) {
+    delete this.furnitureMap[furnitureName];
+  }
+
+  removeItemFromLocation(itemName) {
+    delete this.itemMap[itemName];
+  }
+
+  removeCharacterFromLocation(characterName) {
+    delete this.characterMap[characterMap];
+  }
+
+  //GETTERS
+  getLocationFurniture() {
+    return this.furnitureMap;
+  }
+
+  getPaths() {
+    return this.paths;
+  }
+
+  getPathByName(pathName) {
+    if (pathName in this.paths) {
+      return this.paths[pathName];
+      }
+    return false;
+  }
+
+  getLocationItems() {
+    return this.itemMap;
+  }
+
+  getLocationCharacters() {
+    return this.characterMap;
+  }
 
   getItemByName(itemName) {
     if (itemName in this.itemMap) {
@@ -55,6 +91,7 @@ class Location {
     return false;
   }
 
+  //FOR DEBUG
   listEntities() { //list all entities present in location
     console.log("listing entities");
     console.log(this.characterMap);
