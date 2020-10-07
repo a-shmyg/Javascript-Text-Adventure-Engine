@@ -8,11 +8,13 @@ class ActionParser {
   }
 
   parseUserInputString(userInputString) { //is the string user gave valid ie correct number of words etc
-    if (userInputString.length === 1) {
-      checkDisplayCommand(userInputString);
+    var userStringArray = userInputString.split(" ");
 
-    } else if (userInputString.length === 2) {
-      checkValidAction(userInputString);
+    if (userStringArray.length === 1) { //typically just to diplay info for player
+      this.checkDisplayCommand(userStringArray);
+
+    } else if (userStringArray.length === 2) { //this is for interaction type commands
+      this.checkValidAction(userStringArray[0], userStringArray[1]);
 
     } else {
       console.log("invalid string");
@@ -38,19 +40,23 @@ class ActionParser {
     }
   }
 
-  checkValidAction(actionString) { //given the valid actions does the string given exist as an action
+  checkValidAction(actionString, objectString) { //given the valid actions does the string given exist as an action
     switch(actionString) {
       case "get": //inventory command
         console.log("get into inv");
         break;
       case "drop": //inventory command
         console.log("drop from inv");
+        break;
       case "attack": //interaction command
         console.log("attack entity");
+        break;
       case "talk": //interaction command
         console.log("talk to entity");
+        break;
       case "goto": //interaction command
         console.log("go to location X");
+        break;
       default:
         console.log("invalid action");
         break;
@@ -68,33 +74,23 @@ class ActionParser {
 
   checkFurniture(furnitureName, locationObject) {
     if (locationObject.getFurnitureByName(furnitureName)) {
-      //console.log("found furniture in room");
       return true;
     }
-    //console.log("not found furniture in room");
     return false;
   }
 
   checkItems(itemName, locationObject) {
     if (locationObject.getItemByName(itemName)) {
-      //console.log("found item");
       return true;
     }
-    //console.log("not found item");
     return false;
   }
 
   checkCharacters(characterName, locationObject) {
     if (locationObject.getCharacterByName(characterName)) {
-      //console.log("found character");
       return true;
     }
-    //console.log("did not find character");
     return false;
-  }
-
-  checkInteraction() {
-    //
   }
 
   lookCommand() {

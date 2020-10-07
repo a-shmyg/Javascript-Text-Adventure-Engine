@@ -26,13 +26,17 @@ function main() {
   dragonEvent.initialiseDialogueTree();*/
 
   let actionsParser = new ActionParser();
-  actionsParser.checkValidAction("look");
-  actionsParser.checkValidAction("stats");
-  actionsParser.checkValidAction("get something");
+  //checking the parsing of command
+  actionsParser.checkDisplayCommand("look");
+  actionsParser.checkDisplayCommand("stats");
+  actionsParser.checkValidAction("get", "something");
+
   actionsParser.parseUserInputString("get thing");
   actionsParser.parseUserInputString("drop thing");
   actionsParser.parseUserInputString("invalid action 1");
   actionsParser.parseUserInputString("invalid action2");
+
+  //checking the object checks
   actionsParser.checkItems("sword", testRoom);
   actionsParser.checkFurniture("stone tablet", testRoom);
   actionsParser.checkCharacters("dragon", testRoom);
@@ -40,7 +44,7 @@ function main() {
   actionsParser.checkValidObject("dragon", testRoom);
   actionsParser.checkValidObject("sword", testRoom);
   actionsParser.checkValidObject("nothing", testRoom);
-  //actionsParser.checkFurniture("stone table", testRoom);
+
 
   /*actionsParser.checkValidObject("sword", testRoom);
   actionsParser.checkValidObject("dragon", testRoom);

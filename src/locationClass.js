@@ -30,9 +30,6 @@ class Location {
 
   addFurnitureToLocation(newFurniture) {
     this.furnitureMap[newFurniture.furnitureName] = newFurniture;
-    console.log(newFurniture);
-    console.log(this.furnitureMap);
-    console.log("added furniture to location");
   }
 
   getItemByName(itemName) {
@@ -57,6 +54,7 @@ class Location {
   }
 
   listEntities() { //list all entities present in location
+    console.log("listing entities");
     console.log(this.characterMap);
     console.log(this.itemMap);
     console.log(this.furnitureMap);
