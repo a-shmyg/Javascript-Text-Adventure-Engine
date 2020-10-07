@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", main);
 
 function main() {
   let testRoom = new Location("testRoom", "welcome to the jungle");
+  let testGoto = new Location("testGoto", "new place");
   let playerOne = new Player("ana", {health:10, armour:0, damage:1});
   let dragon = new NPC("dragon", {health:50, armour:25, damage:12}, true);
   let sword = new Weapon("sword", 5, 100);
@@ -20,7 +21,9 @@ function main() {
   testRoom.addItemToLocation(shield);
   testRoom.addCharacterToLocation(dragon);
   testRoom.addFurnitureToLocation(stoneTablet);
-
+  testRoom.addPathToLocation("testGoto");
+  console.log(testRoom.pathExists("testGoto"));
+  console.log(testRoom.paths);
 
   //testRoom.listEntities();
 
@@ -72,6 +75,10 @@ function main() {
   testRoom.listEntities();
   actionsParser.parseUserInputString(playerOne, "inv");
   actionsParser.parseUserInputString(playerOne, "attack dragon");
+  actionsParser.parseUserInputString(playerOne, "where");
+  actionsParser.parseUserInputString(playerOne, "talk dragon");
+  actionsParser.parseUserInputString(playerOne, "goto somewhere");
+  actionsParser.parseUserInputString(playerOne, "goto testGoto");
   //testRoom.listEntities();
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();

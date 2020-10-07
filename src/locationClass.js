@@ -51,6 +51,17 @@ class Location {
     return this.furnitureMap;
   }
 
+  getPaths() {
+    return this.paths;
+  }
+
+  pathExists(pathName) {
+    if (this.paths.includes(pathName)) {
+      return true;
+    }
+    return false;
+  }
+
   getLocationItems() {
     return this.itemMap;
   }

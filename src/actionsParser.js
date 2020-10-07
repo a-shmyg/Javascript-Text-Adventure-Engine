@@ -34,7 +34,7 @@ class ActionParser {
         this.invCommand(commandOwner);
         break;
       case "where":
-        console.log("display paths");
+        this.whereCommand(commandOwner);
         break;
       default:
         break;
@@ -50,13 +50,13 @@ class ActionParser {
         this.dropCommand(commandOwner, entityName);
         break;
       case "attack": //interaction command
-        console.log("attack entity");
+        this.attackCommand(commandOwner, entityName);
         break;
       case "talk": //interaction command
-        console.log("talk to entity");
+        this.talkCommand(commandOwner, entityName);
         break;
       case "goto": //interaction command
-        console.log("go to location X");
+        this.gotoCommand(commandOwner, entityName);
         break;
       default:
         console.log("invalid action");
@@ -139,6 +139,28 @@ class ActionParser {
     }
   }
 
+  talkCommand(commandOwner, entityName) {
+    var currentLocation = commandOwner.getCurrentLocation();
+
+    if (currentLocation.getCharacterByName(entityName)) {
+      console.log("talking to entitity")
+        //transition to dialogue event
+
+    } else {
+      console.log("you cant to to that object");
+    }
+  }
+
+  gotoCommand(commandOwner, path) {
+    var currentLocation = commandOwner.getCurrentLocation();
+
+    if (currentLocation.pathExists(path)) {
+      console.log("change locations thru path");
+    } else {
+      console.log("you can't go that way");
+    }
+  }
+
   lookCommand(commandOwner) {
     //list all entities in the room
     console.log("display entities in room");
@@ -176,5 +198,14 @@ class ActionParser {
       console.log(key);
     }
 
+  }
+
+  whereCommand(commandOwner) {
+    var currentLocation = commandOwner.getCurrentLocation();
+    var locationPaths = currentLocation.getPaths();
+
+    for (var i = 0; i < locationPaths.length; i++) {
+      console.log(locationPaths[i]);
+    }
   }
 }
