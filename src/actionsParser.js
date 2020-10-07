@@ -156,6 +156,9 @@ class ActionParser {
 
     if (currentLocation.pathExists(path)) {
       console.log("change locations thru path");
+      //how do i change current location reference!!!
+      
+
     } else {
       console.log("you can't go that way");
     }
