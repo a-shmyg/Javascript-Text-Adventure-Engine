@@ -2,10 +2,10 @@
 "use strict";
 
 class Character { //name, inv, stats
-  constructor(characterName, characterStats, characterInv) {
+  constructor(characterName, characterStats) {
     this.characterName = characterName;
     this.characterStats = characterStats;
-    this.characterInv = characterInv;
+    this.characterInv = {};
   }
 
   outputCharInfo() { //to test it works correctly
@@ -15,7 +15,15 @@ class Character { //name, inv, stats
   }
 
   addToInventory(item) {
-    this.characterInv.push(item);
+    this.characterInv[item.itemName] = item;
+  }
+
+  removeFromInventory(itemName) {
+    delete this.characterInv[itemName];
+  }
+
+  listInventory() {
+    console.log(this.characterInv);
   }
 }
 

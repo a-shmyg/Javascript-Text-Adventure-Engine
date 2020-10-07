@@ -5,12 +5,12 @@ document.addEventListener("DOMContentLoaded", main);
 
 
 function main() {
-  let playerOne = new Player("ana", {health:10, armour:0, damage:1}, [], "testRoom");
+  let playerOne = new Player("ana", {health:10, armour:0, damage:1}, "testRoom");
   let testRoom = new Location("testRoom", "welcome to the jungle");
-  let dragon = new NPC("dragon", {health:50, armour:25, damage:12}, ["gold"], true);
+  let dragon = new NPC("dragon", {health:50, armour:25, damage:12}, true);
   let sword = new Weapon("sword", 5, 100);
   let shield = new Armour("shield", 10, 50);
-  let stoneTablet = new Furniture("stone tablet");
+  let stoneTablet = new Furniture("stone_tablet");
 
   playerOne.outputCharInfo();
 
@@ -19,13 +19,13 @@ function main() {
   testRoom.addCharacterToLocation(dragon);
   testRoom.addFurnitureToLocation(stoneTablet);
 
-
-  testRoom.listEntities();
+  //testRoom.listEntities();
 
   /*let dragonEvent = new BranchEvent("dragon", dragonDialogue);
   dragonEvent.initialiseDialogueTree();*/
 
   let actionsParser = new ActionParser();
+  /*
   //checking the parsing of command
   actionsParser.checkDisplayCommand(playerOne, "look");
   actionsParser.checkDisplayCommand(playerOne,"stats");
@@ -38,17 +38,19 @@ function main() {
 
   //checking the object checks
   actionsParser.checkItems("sword", testRoom);
-  actionsParser.checkFurniture("stone tablet", testRoom);
+  actionsParser.checkFurniture("stone_tablet", testRoom);
   actionsParser.checkCharacters("dragon", testRoom);
-  actionsParser.checkValidObject("stone tablet", testRoom);
+  actionsParser.checkValidObject("stone_tablet", testRoom);
   actionsParser.checkValidObject("dragon", testRoom);
   actionsParser.checkValidObject("sword", testRoom);
   actionsParser.checkValidObject("nothing", testRoom);
+  */
 
-  /*actionsParser.checkValidObject("sword", testRoom);
-  actionsParser.checkValidObject("dragon", testRoom);
-  actionsParser.checkValidObject("stone tablet", testRoom);
-  actionsParser.checkValidObject("not a thing", testRoom);*/
+  dragon.addToInventory(new Item("gold_pouch", 0, 100));
+  dragon.listInventory();
+  dragon.removeFromInventory("gold_pouch");
+  dragon.listInventory();
+
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
 
