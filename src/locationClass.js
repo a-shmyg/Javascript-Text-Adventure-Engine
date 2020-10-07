@@ -30,6 +30,9 @@ class Location {
 
   addFurnitureToLocation(newFurniture) {
     this.furnitureMap[newFurniture.furnitureName] = newFurniture;
+    console.log(newFurniture);
+    console.log(this.furnitureMap);
+    console.log("added furniture to location");
   }
 
   getItemByName(itemName) {

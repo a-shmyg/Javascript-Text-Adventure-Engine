@@ -57,8 +57,44 @@ class ActionParser {
     }
   }
 
-  setCurrentLocation(locationObject) {
-    this.locationObject = locationObject;
+  checkValidObject(objectName, locationObject) { //given a room entity and list of objects does it exist, if so get ref to object
+    if (this.checkFurniture(objectName, locationObject) || this.checkItems(objectName, locationObject) || this.checkCharacters(objectName, locationObject)) {
+      console.log("found object in room");
+      return true;
+    }
+    console.log("not found object in room");
+    return false;
+  }
+
+  checkFurniture(furnitureName, locationObject) {
+    if (locationObject.getFurnitureByName(furnitureName)) {
+      //console.log("found furniture in room");
+      return true;
+    }
+    //console.log("not found furniture in room");
+    return false;
+  }
+
+  checkItems(itemName, locationObject) {
+    if (locationObject.getItemByName(itemName)) {
+      //console.log("found item");
+      return true;
+    }
+    //console.log("not found item");
+    return false;
+  }
+
+  checkCharacters(characterName, locationObject) {
+    if (locationObject.getCharacterByName(characterName)) {
+      //console.log("found character");
+      return true;
+    }
+    //console.log("did not find character");
+    return false;
+  }
+
+  checkInteraction() {
+    //
   }
 
   lookCommand() {
@@ -72,35 +108,4 @@ class ActionParser {
   invCommand() {
     //player inv
   }
-
-  checkValidObject(checkObjectExists, locationObject) { //given a room entity and list of objects does it exist
-    if (checkFurniture() && checkItems() && checkCharacters()) {
-      return true;
-    }
-    return false;
-  }
-
-  checkFurniture(furnitureName, locationObject) {
-    if (locationObject.getFurnitureByName(furnitureName)) {
-      return true;
-    }
-    return false;
-  }
-
-  checkItems(itemName, locationObject) {
-    //
-  }
-
-  checkCharacters(characterName, locationObject) {
-    //
-  }
-
-  checkInteraction() {
-    //
-  }
-
-  outputValidActions() {
-    console.log(this.validActionList);
-  }
-
 }

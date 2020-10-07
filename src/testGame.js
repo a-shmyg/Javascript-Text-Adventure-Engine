@@ -12,7 +12,6 @@ function main() {
   let shield = new Armour("shield", 10, 50);
   let stoneTablet = new Furniture("stone tablet");
 
-
   playerOne.outputCharInfo();
 
   testRoom.addItemToLocation(sword);
@@ -20,10 +19,10 @@ function main() {
   testRoom.addCharacterToLocation(dragon);
   testRoom.addFurnitureToLocation(stoneTablet);
 
+
   testRoom.listEntities();
-                          //left branch        //right branches
-  /*let dragonDialogue = ["hi", ["yes", ["possibly", "maybe"]], ["no", ["probs not", "lets not"]]];
-  let dragonEvent = new BranchEvent("dragon", dragonDialogue);
+
+  /*let dragonEvent = new BranchEvent("dragon", dragonDialogue);
   dragonEvent.initialiseDialogueTree();*/
 
   let actionsParser = new ActionParser();
@@ -34,6 +33,19 @@ function main() {
   actionsParser.parseUserInputString("drop thing");
   actionsParser.parseUserInputString("invalid action 1");
   actionsParser.parseUserInputString("invalid action2");
+  actionsParser.checkItems("sword", testRoom);
+  actionsParser.checkFurniture("stone tablet", testRoom);
+  actionsParser.checkCharacters("dragon", testRoom);
+  actionsParser.checkValidObject("stone tablet", testRoom);
+  actionsParser.checkValidObject("dragon", testRoom);
+  actionsParser.checkValidObject("sword", testRoom);
+  actionsParser.checkValidObject("nothing", testRoom);
+  //actionsParser.checkFurniture("stone table", testRoom);
+
+  /*actionsParser.checkValidObject("sword", testRoom);
+  actionsParser.checkValidObject("dragon", testRoom);
+  actionsParser.checkValidObject("stone tablet", testRoom);
+  actionsParser.checkValidObject("not a thing", testRoom);*/
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
 
