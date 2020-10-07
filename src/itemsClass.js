@@ -29,7 +29,16 @@ class Consumable extends Item { //affects any stat ie health potion poison etc
 }
 
 class Furniture { //interactable with, cant be picked up
-  constuctor(furnitureName) {
+  constructor(furnitureName) {
     this.furnitureName = furnitureName;
+    this.getFurnitureName = this.getFurnitureName.bind(this);
+  }
+
+  printName() {
+    console.log(this.furnitureName);
+  }
+
+  getFurnitureName() {
+    return this.furnitureName;
   }
 }

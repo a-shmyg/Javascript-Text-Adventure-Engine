@@ -3,29 +3,60 @@
 "use strict";
 
 class Location {
-  constructor(locationName, locationNarration, characterList, itemList, furnitureList) {
+  constructor(locationName, locationNarration) {
     this.locationName = locationName;
     this.locationNarration = locationNarration;
-    this.characterList = characterList;
-    this.itemList = itemList;
-    this.furnitureList = furnitureList;
+    this.characterMap = {};
+    this.itemMap = {};
+    this.furnitureMap = {};
+    this.paths = [];
+  }
+
+  addPathToLocation(pathName) {
+    this.paths.push(pathName);
+  }
+
+  removePathFromLocation(pathName) {
+    this.paths.pop(pathName);
   }
 
   addCharacterToLocation(newCharacter) {
-    this.characterList.push(newCharacter);
+    this.characterMap[newCharacter.characterName] = newCharacter;
   }
 
   addItemToLocation(newItem) {
-    this.itemList.push(newItem);
+    this.itemMap[newItem.itemName] = newItem;
   }
 
   addFurnitureToLocation(newFurniture) {
-    this.furnitureList.push(newFurniture);
+    this.furnitureMap[newFurniture.furnitureName] = newFurniture;
+  }
+
+  getItemByName(itemName) {
+    if (itemName in this.itemMap) {
+      return this.itemMap[itemName];
+    }
+    return false;
+  }
+
+  getCharacterByName(characterName) {
+    if (characterName in this.characterMap) {
+      return this.characterMap[characterName];
+    }
+    return false;
+  }
+
+  getFurnitureByName(furnitureName) {
+    if (furnitureName in this.furnitureMap) {
+      return this.furnitureMap[furnitureName];
+    }
+    return false;
   }
 
   listEntities() { //list all entities present in location
-    console.log(this.characterList);
-    console.log(this.itemList);
-    console.log(this.furnitureList);
+    console.log("listing entities");
+    console.log(this.characterMap);
+    console.log(this.itemMap);
+    console.log(this.furnitureMap);
   }
 }
