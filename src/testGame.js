@@ -51,6 +51,8 @@ function main() {
   dragon.removeFromInventory("gold_pouch");
   dragon.listInventory();
 
+  
+
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
 

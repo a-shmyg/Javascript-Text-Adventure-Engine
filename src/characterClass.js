@@ -25,6 +25,10 @@ class Character { //name, inv, stats
   listInventory() {
     console.log(this.characterInv);
   }
+
+  getCharacterInventory() {
+    return this.characterInv;
+  }
 }
 
 class NPC extends Character { //extra option if hostile or not
