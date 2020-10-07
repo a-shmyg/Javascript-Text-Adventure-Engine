@@ -56,7 +56,7 @@ function main() {
 
   //testing action interface
   actionsParser.parseUserInputString(dragon, "inv");
-
+  actionsParser.parseUserInputString(playerOne, "look");
 
 
   //let formatOutput = new FormatOutput();

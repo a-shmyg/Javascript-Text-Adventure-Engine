@@ -25,7 +25,7 @@ class ActionParser {
     console.log("display command");
     switch(displayCommand) {
       case "look": //display command
-        console.log("display the area");
+        this.lookCommand();
         break;
       case "stats": //display command
         console.log("display stats");
@@ -96,6 +96,9 @@ class ActionParser {
 
   lookCommand() {
     //list all entities in the room
+    //need a way to get the current location object
+    console.log("display entities in room");
+
   }
 
   statsCommand() {

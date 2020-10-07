@@ -2,9 +2,10 @@
 "use strict";
 
 class Character { //name, inv, stats
-  constructor(characterName, characterStats) {
+  constructor(characterName, characterStats, currentLocation) {
     this.characterName = characterName;
     this.characterStats = characterStats;
+    this.currentLocation = currentLocation;
     this.characterInv = {};
   }
 
@@ -32,8 +33,8 @@ class Character { //name, inv, stats
 }
 
 class NPC extends Character { //extra option if hostile or not
-  constructor(characterName, characterStats, characterInv, isHostile) {
-    super(characterName, characterStats, characterInv);
+  constructor(characterName, characterStats, characterInv, currentLocation, isHostile) {
+    super(characterName, characterStats, characterInv, currentLocation);
     this.isHostile = isHostile;
   }
 
@@ -46,7 +47,7 @@ class NPC extends Character { //extra option if hostile or not
 
 class Player extends Character { //extra option for current location
   constructor(characterName, characterStats, characterInv, currentLocation) {
-    super(characterName, characterStats, characterInv);
+    super(characterName, characterStats, characterInv, currentLocation);
     this.currentLocation = currentLocation;
   }
 
