@@ -11,7 +11,7 @@ class ActionParser {
     console.log(commandOwner.characterName+" is doing a command");
 
     if (userStringArray.length === 1) { //typically just to diplay info for player
-      this.checkDisplayCommand(commandOwner, userStringArray);
+      this.checkDisplayCommand(commandOwner, userStringArray[0]);
 
     } else if (userStringArray.length === 2) { //this is for interaction type commands
       this.checkValidAction(commandOwner, userStringArray[0], userStringArray[1]);
@@ -22,6 +22,7 @@ class ActionParser {
   }
 
   checkDisplayCommand(commandOwner, displayCommand) {
+    console.log("display command");
     switch(displayCommand) {
       case "look": //display command
         console.log("display the area");
@@ -30,7 +31,7 @@ class ActionParser {
         console.log("display stats");
         break;
       case "inv": //display command
-        console.log("display inv");
+        this.invCommand(commandOwner);
         break;
       case "where": //display command
         console.log("display paths");
@@ -101,7 +102,14 @@ class ActionParser {
     //player stats
   }
 
-  invCommand() {
-    //player inv
+  invCommand(commandOwner) {
+    console.log("displaying inventory");
+    var characterInv = Object.entries(commandOwner.getCharacterInventory());
+    //check it doesnt make the item object into array as well
+
+    for (var i = 0; i < characterInv.length; i++) {
+      console.log(characterInv[i][0]);
+    }
+
   }
 }
