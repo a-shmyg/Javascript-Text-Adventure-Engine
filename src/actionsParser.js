@@ -3,7 +3,6 @@
 
 class ActionParser {
   constructor() {
-    this.locationObject;
     this.checkValidAction = this.checkValidAction.bind(this);
   }
 
