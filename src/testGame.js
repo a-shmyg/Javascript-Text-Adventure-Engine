@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", main);
 
 
 function main() {
+  //initialising test objects
   let testRoom = new Location("testRoom", "welcome to the jungle");
   let testGoto = new Location("testGoto", "new place");
   let playerOne = new Player("ana", {health:10, armour:0, damage:1});
@@ -51,15 +52,15 @@ function main() {
   */
 
   //testing inventory methods
-  dragon.addToInventory(new Item("gold_pouch", 0, 100));
+  /*dragon.addToInventory(new Item("gold_pouch", 0, 100));
   dragon.addToInventory(new Item("silver_pouch", 0, 100));
   dragon.addToInventory(new Item("copper_pouch", 0, 100));
-  dragon.listInventory();
+  dragon.listInventory();*/
   //dragon.removeFromInventory("gold_pouch");
   //dragon.listInventory();
 
   //testing action interface
-  actionsParser.parseUserInputString(dragon, "inv");
+  /*actionsParser.parseUserInputString(dragon, "inv");
   actionsParser.parseUserInputString(playerOne, "look");
   actionsParser.parseUserInputString(playerOne, "stats");
   actionsParser.parseUserInputString(playerOne, "get shield");
@@ -76,7 +77,7 @@ function main() {
   actionsParser.parseUserInputString(playerOne, "where");
   actionsParser.parseUserInputString(playerOne, "talk dragon");
   actionsParser.parseUserInputString(playerOne, "goto somewhere");
-  actionsParser.parseUserInputString(playerOne, "goto testGoto");
+  actionsParser.parseUserInputString(playerOne, "goto testGoto");*/
   //testRoom.listEntities();
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
