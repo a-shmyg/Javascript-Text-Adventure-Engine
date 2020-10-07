@@ -58,7 +58,6 @@ class NPC extends Character { //extra option if hostile or not
 
   outputCharInfo() { //to test it works correctly
     super.outputCharInfo();
-    console.log(this.isHostile);
   }
 
 }
@@ -70,7 +69,6 @@ class Player extends Character { //extra option for current location
 
   outputCharInfo() { //to test it works correctly
     super.outputCharInfo();
-    console.log(this.currentLocation);
   }
 
 }

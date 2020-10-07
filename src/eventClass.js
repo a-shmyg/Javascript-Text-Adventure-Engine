@@ -19,10 +19,6 @@ class BranchEvent extends Event { //holds dialogie branches using tree structure
     console.log(this.branchDialogue);
 
   }
-
-  printNodes() {
-
-  }
 }
 
 class DynamicEvent extends Event {
