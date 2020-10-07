@@ -41,13 +41,13 @@ class ActionParser {
     }
   }
 
-  checkValidAction(commandOwner, actionString, objectString) { //given the valid actions does the string given exist as an action
+  checkValidAction(commandOwner, actionString, entityName) { //given the valid actions does the string given exist as an action
     switch(actionString) {
       case "get": //inventory command
-        console.log("get into inv");
+        this.getCommand(commandOwner, entityName);
         break;
       case "drop": //inventory command
-        console.log("drop from inv");
+        this.dropCommand(commandOwner, entityName);
         break;
       case "attack": //interaction command
         console.log("attack entity");
@@ -92,6 +92,39 @@ class ActionParser {
       return true;
     }
     return false;
+  }
+
+  getCommand(commandOwner, entityName) {
+    var currentLocation = commandOwner.getCurrentLocation();
+
+    if (this.checkItems(entityName, currentLocation)) {
+      console.log("adding to inventory");
+
+      var itemToAdd = currentLocation.getItemByName(entityName);
+      commandOwner.addToInventory(itemToAdd);
+
+      console.log("removing from location");
+      currentLocation.removeItemFromLocation(entityName);
+    } else {
+      console.log("you can't pick this up");
+    }
+  }
+
+  dropCommand(commandOwner, entityName) {
+    var currentLocation = commandOwner.getCurrentLocation();
+
+    if (commandOwner.getInventoryItemByName(entityName)) {
+      console.log("removing from inventory");
+
+      var itemToDrop = commandOwner.getInventoryItemByName(entityName);
+      commandOwner.removeFromInventory(entityName);
+
+      console.log("adding to location");
+      currentLocation.addItemToLocation(itemToDrop);
+
+    } else {
+      console.log("you can't drop this");
+    }
   }
 
   lookCommand(commandOwner) {

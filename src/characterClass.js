@@ -41,6 +41,13 @@ class Character { //name, inv, stats
   getCurrentLocation() {
     return this.currentLocation;
   }
+
+  getInventoryItemByName(itemName) {
+    if (itemName in this.characterInv) {
+      return this.characterInv[itemName];
+    }
+    return false;
+  }
 }
 
 class NPC extends Character { //extra option if hostile or not

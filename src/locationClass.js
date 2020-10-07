@@ -12,12 +12,9 @@ class Location {
     this.paths = [];
   }
 
+  //ADDING METHODS
   addPathToLocation(pathName) {
     this.paths.push(pathName);
-  }
-
-  removePathFromLocation(pathName) {
-    this.paths.pop(pathName);
   }
 
   addCharacterToLocation(newCharacter) {
@@ -32,8 +29,24 @@ class Location {
     this.furnitureMap[newFurniture.furnitureName] = newFurniture;
   }
 
-  //ADD REMOVING METHODS!
+  //REMOVING METHODS
+  removePathFromLocation(pathName) {
+    this.paths.pop(pathName);
+  }
 
+  removeFurnitureFromLocation(furnitureName) {
+    delete this.furnitureMap[furnitureName];
+  }
+
+  removeItemFromLocation(itemName) {
+    delete this.itemMap[itemName];
+  }
+
+  removeCharacterFromLocation(characterName) {
+    delete this.characterMap[characterMap];
+  }
+
+  //GETTERS
   getLocationFurniture() {
     return this.furnitureMap;
   }
@@ -67,6 +80,7 @@ class Location {
     return false;
   }
 
+  //FOR DEBUG
   listEntities() { //list all entities present in location
     console.log("listing entities");
     console.log(this.characterMap);

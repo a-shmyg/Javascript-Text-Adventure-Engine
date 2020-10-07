@@ -61,7 +61,17 @@ function main() {
   actionsParser.parseUserInputString(dragon, "inv");
   actionsParser.parseUserInputString(playerOne, "look");
   actionsParser.parseUserInputString(playerOne, "stats");
-
+  actionsParser.parseUserInputString(playerOne, "get shield");
+  actionsParser.parseUserInputString(playerOne, "inv");
+  testRoom.listEntities();
+  actionsParser.parseUserInputString(playerOne, "get sword");
+  testRoom.listEntities();
+  actionsParser.parseUserInputString(playerOne, "get nothing");
+  actionsParser.parseUserInputString(playerOne, "drop shield");
+  actionsParser.parseUserInputString(playerOne, "drop sword");
+  testRoom.listEntities();
+  actionsParser.parseUserInputString(playerOne, "inv");
+  //testRoom.listEntities();
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
 
