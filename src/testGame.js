@@ -26,8 +26,9 @@ function main() {
 
   //testRoom.listEntities();
 
-  /*let dragonEvent = new BranchEvent("dragon", dragonDialogue);
-  dragonEvent.initialiseDialogueTree();*/
+  let dragonDialogue = ["hello", ["yes"], ["no"]];
+  let dragonEvent = new BranchEvent("dragonTalk", "trigger", "outcome", dragonDialogue);
+  dragonEvent.initialiseDialogueTree();
 
   let actionsParser = new ActionParser();
   /*
@@ -81,5 +82,6 @@ function main() {
   //testRoom.listEntities();
   //let formatOutput = new FormatOutput();
   //formatOutput.initialiseFrameInput();
+
 
 }
